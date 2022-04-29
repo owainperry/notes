@@ -10,5 +10,18 @@ Create a gitrepo
 gh repo create --public owainperry/gitops-test
 ```
 
+Fork pod info
+```bash
+ gh repo fork wego-example/podinfo-deploy  --fork-name podinfo-deploy1
+```
 
+Create kind cluster 
+```bash
+kind create cluster --name wge
+```
 
+install onto cluster 
+```bash
+export GITHUB_TOKEN=$(cat ~/.github_token)
+gitops install --config-repo git@github.com:owainperry/gitops-test 
+```
